@@ -1,0 +1,30 @@
+.register{
+    padding-top: 75px;
+    padding-bottom: 100px;
+}
+.register form{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+.text-link{
+    text-decoration: none;
+}
+  .signin-btn{
+    border-radius: 10px;
+    padding: 5px 30px;
+    color: honeydew;
+    font-weight: 600;
+    background-color: grey;
+    outline: none;
+    border: 1px solid grey;
+  }
+  .register form input,textarea{
+    width: 40%;
+    margin-bottom: 10px;
+    border:1px solid white;
+    border-radius: 10px;
+    outline: none;
+}

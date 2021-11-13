@@ -1,0 +1,53 @@
+.purchase img{
+    width: 350px;
+    height: 200px;
+    border-radius: 20px;
+   
+}
+.purchase{
+   padding-top: 100px;
+   padding-bottom: 90px;
+   background-color: rgb(233, 241, 238);
+}
+.cost{
+    margin-left:2px;
+}
+.adress{
+    margin-left:20px;
+}
+.date{
+    margin-left:8px;
+}
+input{
+    outline: none;
+    border: 1px solid rgb(70, 66, 66);
+}
+span{
+    color: rgb(158, 44, 24);
+}
+.booking-form{
+    padding:21px 0px;
+    box-shadow:1px 1px 3px,-1px -1px 3px;
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 90%;
+    margin-left:15px;
+}
+
+.btn-book{
+    border-radius: 15px;
+    font-family:cursive;
+    margin-left:28px;
+    border: 1px solid white;
+}
+.btn-book:hover{
+    background-color: rgb(76, 183, 216);
+    border: 1px dotted white;
+    color: cornsilk;
+    font-size:40px;
+}
+.booking h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    margin-bottom:10px;
+}

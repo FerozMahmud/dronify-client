@@ -1,0 +1,18 @@
+.header{
+    color: white;
+    position: sticky;
+}
+
+.nav{
+    padding-right: 17px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.user-login{
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 10px;
+    }
