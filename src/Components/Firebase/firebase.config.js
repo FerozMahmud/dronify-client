@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCXui2MSBSY2vU1_X07V2ss2wbXT4DNqc4",
-    authDomain: "dronify-mahmud.firebaseapp.com",
-    projectId: "dronify-mahmud",
-    storageBucket: "dronify-mahmud.appspot.com",
-    messagingSenderId: "169876182335",
-    appId: "1:169876182335:web:989a217fbe241ed871ef8a"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
 };
 
 export default firebaseConfig;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 
 initializeAuthentication();
@@ -10,6 +10,8 @@ const useFirebase = () => {
 
     const auth = getAuth()
     const googleProvider = new GoogleAuthProvider()
+
+
     const signInUsingGoogle = () => {
         setIsLoading(true)
         return signInWithPopup(auth, googleProvider)
@@ -18,6 +20,16 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false))
     }
+
+    const createAccountWithGoogle = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const loginWithEmailAndPassword = () => {
+        signInWithEmailAndPassword(auth, email, password)
+    }
+
+
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -44,55 +56,12 @@ const useFirebase = () => {
     return {
         user,
         signInUsingGoogle,
+        createAccountWithGoogle,
+        loginWithEmailAndPassword,
         logOut,
         isLoading
     }
 
-
-
-
-
-    // const [user, setUser] = useState({});
-
-    // const auth = getAuth();
-    // const googleProvider = new GoogleAuthProvider();
-
-    // const signInUsingGoogle = () => {
-    //     signInWithPopup(auth, googleProvider)
-    //         .then((result) => {
-    //             console.log(result.user);
-    //         })
-    // }
-
-    // const logOut = () => {
-    //     signOut(auth)
-    //         .then(() => {
-    //             setUser({})
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             setUser(user);
-    //         }
-    //     });
-    // })
-
-    // const handleEmailChange = (e) => {
-    //     console.log(e.target.value);
-    // }
-    // const handlePasswordChange = (e) => {
-    //     console.log(e.target.value);
-    // }
-
-    // return {
-    //     user,
-    //     signInUsingGoogle,
-    //     logOut,
-    //     handleEmailChange,
-    //     handlePasswordChange
-    // }
 }
 
 export default useFirebase;

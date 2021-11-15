@@ -24,9 +24,9 @@ const Products = () => {
                         <div className="col">
                             <div className="card h-100 bg-light">
                                 <img src={product.image} className="card-img-top" height='250' width='200' alt="" />
-                                <div class="card-body">
-                                    <h5 class="card-title">{product.name}</h5>
-                                    <p class="card-text">{product.description}</p>
+                                <div className="card-body">
+                                    <h5 className="card-title">{product.name}</h5>
+                                    <p className="card-text">{product.description}</p>
                                 </div>
                                 <div className="mb-3">
                                     <Link to={`/purchase/${product.id}`}><span><button className='btn btn-dark px-5'>Buy now</button></span></Link>

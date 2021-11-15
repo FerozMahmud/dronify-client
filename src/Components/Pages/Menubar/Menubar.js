@@ -15,12 +15,15 @@ const Menubar = () => {
         <div>
             <Navbar className="header" bg="dark" variant="dark" collapseOnSelect expand="lg">
                 <Container >
-                    <Navbar.Brand href="/"><strong>Dronify</strong></Navbar.Brand>
+                    <Navbar.Brand href="/"><h3><strong>Dronify</strong></h3></Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <NavLink activeStyle={activeStyle} className="nav" to="/home">Home</NavLink>
-                        <NavLink activeStyle={activeStyle} className="nav" to="/products">Explore All Products</NavLink>
+                        <NavLink activeStyle={activeStyle} className="nav" to="/products">Products</NavLink>
                         <NavLink activeStyle={activeStyle} className="nav" to="/myorders">My Orders</NavLink>
+                        <NavLink activeStyle={activeStyle} className="nav" to="/pay">Payment</NavLink>
+                        <NavLink activeStyle={activeStyle} className="nav" to="/addreview">Add Review</NavLink>
+                        <NavLink activeStyle={activeStyle} className="nav" to="/dashboard">Dashboard</NavLink>
 
 
                         {user.email && <span style={{ color: 'lightgreen' }}>Hello <strong >{user.displayName}</strong></span>}
