@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './ManageOrders.css'
 
 const ManageOrders = () => {
@@ -50,6 +51,8 @@ const ManageOrders = () => {
                         ))
                     }
                 </div>
+                <h5 className='mt-4'>Back to Dashboard</h5>
+                <NavLink className="btn btn-success px-3" to="/dashboard">Dashboard</NavLink>
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './AddReview.css'
 
 const AddReview = () => {
@@ -31,7 +32,6 @@ const AddReview = () => {
 
     return (
         <div>
-            {/* <Dashboard></Dashboard> */}
             <div className='add-review'>
                 <h2 className='text-dark'>Please add a product</h2>
                 <form>
@@ -40,6 +40,8 @@ const AddReview = () => {
                     <input onChange={handleRatinghange} placeholder='Enter a rating number out of 5' />
                     <button onClick={handleAddReview} className='submit-btn btn btn-success' Enter="submit">Submit</button>
                 </form>
+                <h5 className='mt-4'>Back to Dashboard</h5>
+                <NavLink className="btn btn-success px-3" to="/dashboard">Dashboard</NavLink>
             </div>
         </div>
     );

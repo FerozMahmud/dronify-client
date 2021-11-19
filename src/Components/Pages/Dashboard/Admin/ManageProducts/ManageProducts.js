@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ManageProducts = () => {
     const [products, setproducts] = useState([]);
@@ -57,6 +57,8 @@ const ManageProducts = () => {
                         )
                     }
                 </div>
+                <h5 className='mt-4'>Back to Dashboard</h5>
+                <NavLink className="btn btn-success px-3 mb-3" to="/dashboard">Dashboard</NavLink>
             </div>
         </div>
     );

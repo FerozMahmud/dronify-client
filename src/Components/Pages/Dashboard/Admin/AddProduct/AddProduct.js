@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './AddProduct.css'
 
 const AddProduct = () => {
@@ -43,6 +44,8 @@ const AddProduct = () => {
                     <input onChange={handleImageeChange} placeholder='Enter the image url' />
                     <button onClick={handleAddProducts} className='submit-btn btn btn-success' Enter="submit">Submit</button>
                 </form>
+                <h5 className='mt-4'>Back to Dashboard</h5>
+                <NavLink className="btn btn-success px-3" to="/dashboard">Dashboard</NavLink>
             </div>
         </div>
     );
