@@ -10,7 +10,7 @@ const Update = () => {
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch(`http://localhost:5000/update/${productId}`, {
+        fetch(`https://cryptic-badlands-00661.herokuapp.com/update/${productId}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -20,7 +20,7 @@ const Update = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleProduct/${productId}`)
+        fetch(`https://cryptic-badlands-00661.herokuapp.com/singleProduct/${productId}`)
             .then((res) => res.json())
             .then((data) => setSingleProduct(data));
     }, []);

@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [services, setServices] = useState([])
     const [control, setControl] = useState(false)
     useEffect(() => {
-        fetch(`http://localhost:5000/myorders/${email}`)
+        fetch(`https://cryptic-badlands-00661.herokuapp.com/myorders/${email}`)
             .then(res => res.json())
             .then(data => setServices(data))
     }, [email, control])
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure,you want to cancel the booking???');
         if (proceed) {
-            fetch(`https://localhost:5000/cancelOrder/${id}`, {
+            fetch(`https://cryptic-badlands-00661.herokuapp.com/cancelOrder/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

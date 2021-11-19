@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Products = () => {
     const [products, setproducts] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://cryptic-badlands-00661.herokuapp.com/products")
             .then((res) => res.json())
             .then((result) => setproducts(result));
     }, []);

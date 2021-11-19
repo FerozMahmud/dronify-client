@@ -20,7 +20,7 @@ const AddReview = () => {
     const handleAddReview = () => {
         const data = { name, review, rating };
 
-        fetch("http://localhost:5000/addReview", {
+        fetch("https://cryptic-badlands-00661.herokuapp.com/addReview", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),

@@ -5,13 +5,13 @@ const ManageProducts = () => {
     const [products, setproducts] = useState([]);
     const [isDeleted, setIsDeleted] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://cryptic-badlands-00661.herokuapp.com/products")
             .then((res) => res.json())
             .then((result) => setproducts(result));
     }, [isDeleted]);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://cryptic-badlands-00661.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
         })

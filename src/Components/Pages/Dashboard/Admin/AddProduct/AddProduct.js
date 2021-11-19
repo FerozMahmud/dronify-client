@@ -23,7 +23,7 @@ const AddProduct = () => {
     const handleAddProducts = () => {
         const data = { name, description, price, image };
 
-        fetch("http://localhost:5000/addProduct", {
+        fetch("https://cryptic-badlands-00661.herokuapp.com/addProduct", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
