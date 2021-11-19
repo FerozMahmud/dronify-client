@@ -1,29 +1,12 @@
-.dash-header{
-    color: yellow;
-    position: sticky;
-}
-
 .dash-nav{
-    padding-right: 17px;
-    color: yellow;
     text-decoration: none;
     font-weight: 500;
 }
 .dashboard-top{
-    line-height: 0%;
+    line-height: 200%;
 }
 .log-out{
     font-weight: 600;
     color: #fff;
     text-decoration: none;
-    padding-left: 10px;
-}
-.admin-dashboard{
-    padding: 50px 10px;
-    /* background-image: url('https://images.indianexpress.com/2021/11/7601f020-cd55-486a-868e-b608861875a6.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 80vh; */
 }

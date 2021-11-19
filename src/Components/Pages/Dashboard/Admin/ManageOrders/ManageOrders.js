@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Dashboard from '../Dashboard/Dashboard';
 import './ManageOrders.css'
 
 const ManageOrders = () => {
@@ -31,7 +30,6 @@ const ManageOrders = () => {
     }
     return (
         <div>
-            <Dashboard></Dashboard>
             <div className='all-orders'>
                 <h2 className=' pt-5 pb-3 subtitle'>All The Orders Are Here</h2>
                 <h3 className='pb-5 pt-1 text-success fs-3'>You can delete Any Order</h3>

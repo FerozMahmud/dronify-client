@@ -3,7 +3,7 @@ import Banner from './Banner';
 import Services from './Services'
 import './Home.css'
 import ChoosingUs from './ChoosingUs';
-import { NavLink } from 'react-router-dom';
+import Review from './Review';
 
 const Home = () => {
     return (
@@ -13,10 +13,12 @@ const Home = () => {
 
             {/*---------- Services Part ----------*/}
             <Services></Services>
-            <NavLink className="btn btn-dark" to="/products">Explore All Products</NavLink>
 
 
             <ChoosingUs></ChoosingUs>
+
+
+            <Review></Review>
         </div>
     );
 };

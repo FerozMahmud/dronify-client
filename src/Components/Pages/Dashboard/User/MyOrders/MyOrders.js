@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../../Hooks/useAuth';
 import './MyOrders.css'
 
 const MyOrders = () => {
@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [services, setServices] = useState([])
     const [control, setControl] = useState(false)
     useEffect(() => {
-        fetch(`https://safe-cliffs-06637.herokuapp.com/myOrders/${email}`)
+        fetch(`http://localhost:5000/myorders/${email}`)
             .then(res => res.json())
             .then(data => setServices(data))
     }, [email, control])
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure,you want to cancel the booking???');
         if (proceed) {
-            fetch(`https://safe-cliffs-06637.herokuapp.com/cancelOrder/${id}`, {
+            fetch(`https://localhost:5000/cancelOrder/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

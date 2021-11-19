@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Products = () => {
-    // const { name, image, description, id } = props.product;
-
     const [products, setproducts] = useState([])
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(res => res.json())
-            .then(data => setproducts(data));
+        fetch("http://localhost:5000/products")
+            .then((res) => res.json())
+            .then((result) => setproducts(result));
     }, []);
 
     return (
@@ -27,6 +25,9 @@ const Products = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">{product.description}</p>
+                                </div>
+                                <div className="p-4">
+                                    <h6 className="card-text">Price: {product.price}</h6>
                                 </div>
                                 <div className="mb-3">
                                     <Link to={`/purchase/${product.id}`}><span><button className='btn btn-dark px-5'>Buy now</button></span></Link>

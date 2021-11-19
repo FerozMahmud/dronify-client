@@ -1,23 +1,25 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Components/Context/AuthProvider';
-import AddReview from './Components/Pages/AddReviwe/AddReview';
-import AddProduct from './Components/Pages/Dashboard/AddProduct/AddProduct';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Pages/Dashboard/Dashboard/Dashboard';
-import MakeAdmin from './Components/Pages/Dashboard/MakeAdmin/MakeAdmin';
-import ManageProducts from './Components/Pages/Dashboard/ManageProducts/ManageProducts';
-import ManageOrders from './Components/Pages/Dashboard/ManageOrders/ManageOrders';
 import NotFound from './Components/Pages/Error/NotFound';
 import Footer from './Components/Pages/Footer/Footer';
 import Home from './Components/Pages/Home/Home';
 import Login from './Components/Pages/Login/Login';
 import Menubar from './Components/Pages/Menubar/Menubar';
-import MyOrders from './Components/Pages/MyOrders/MyOrders';
 import Products from './Components/Pages/Products/Products';
 import Purchase from './Components/Pages/Purchase/Purchase';
 import Register from './Components/Pages/Register/Register';
-import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import Pay from './Components/Pages/Pay/Pay';
+import ManageOrders from './Components/Pages/Dashboard/Admin/ManageOrders/ManageOrders';
+import ManageProducts from './Components/Pages/Dashboard/Admin/ManageProducts/ManageProducts';
+import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct/AddProduct';
+import MakeAdmin from './Components/Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
+import MyOrders from './Components/Pages/Dashboard/User/MyOrders/MyOrders';
+import Pay from './Components/Pages/Dashboard/User/Pay/Pay';
+import AddReview from './Components/Pages/Dashboard/User/AddReviwe/AddReview';
+import Update from './Components/Pages/Products/Update';
+
 
 function App() {
   return (
@@ -35,21 +37,24 @@ function App() {
             <Route path="/products">
               <Products />
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
-            <Route path="/manageorders">
+            </PrivateRoute>
+            <PrivateRoute path="/manageorders">
               <ManageOrders />
-            </Route>
-            <Route path="/manageproducts">
+            </PrivateRoute>
+            <PrivateRoute path="/manageproducts">
               <ManageProducts />
-            </Route>
-            <Route path="/addproduct">
+            </PrivateRoute>
+            <PrivateRoute path="/addproduct">
               <AddProduct />
-            </Route>
-            <Route path="/makeadmin">
+            </PrivateRoute>
+            <PrivateRoute path="/makeadmin">
               <MakeAdmin />
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/update/:productId">
+              <Update />
+            </PrivateRoute>
             <PrivateRoute path="/myorders">
               <MyOrders />
             </PrivateRoute>

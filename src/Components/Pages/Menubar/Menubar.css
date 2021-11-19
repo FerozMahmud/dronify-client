@@ -3,16 +3,26 @@
     position: sticky;
 }
 
-.nav{
+.menu{
+    vertical-align: text-center;
     padding-right: 17px;
+    padding-bottom: 5px;
     color: white;
     text-decoration: none;
     font-weight: 500;
 }
 
-.user-login{
+.user-login{ 
+    vertical-align: text-center;
     font-weight: 600;
     color: #fff;
     text-decoration: none;
-    padding-left: 10px;
+    padding: 0px 10px;
+}
+.user-logout{ 
+    color: #fff;
+    text-decoration: none;
+}
+.font-weight{
+    font-weight: 600;
 }

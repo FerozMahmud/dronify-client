@@ -1,67 +1,70 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLocation, useHistory } from 'react-router';
+import { Spinner, Toast } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
+import { useHistory, useLocation } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Login.css'
-
-
 const Login = () => {
-    const { signInUsingGoogle, setUser, loginWithEmailAndPassword } = useAuth();
+    const { register, handleSubmit, reset } = useForm();
+    const [loginData, setLoginData] = useState({})
+    const { loginUser, isLoading, authError, signInUsingGoogle } = useAuth()
+    const [show, setShow] = useState(false);
 
-
-    const location = useLocation()
+    const location = useLocation();
     const history = useHistory()
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData }
+        newLoginData[field] = value;
+        setLoginData(newLoginData)
 
-    const handleGetEmail = (e) => {
-        setEmail(e.target.value)
     }
-
-    const handleGetPassword = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const handleLoginWithEmailAndPassword = (e) => {
-        e.preventDefault()
-        loginWithEmailAndPassword(email, Password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user)
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
-    }
-
-    const redirect_uri = location.state?.from || '/home'
     const handleGoogleLogin = () => {
-        signInUsingGoogle()
-            .then(result => {
-                history.push(redirect_uri)
-            })
+        signInUsingGoogle(location, history)
     }
+    const onSubmit = data => {
+        setShow(true)
+        loginUser(loginData.email, loginData.password, location, history)
+        reset()
+    }
+
     return (
         <div className='login'>
             <h2>Login</h2>
-            <form onSubmit={handleLoginWithEmailAndPassword}>
-                <input type="email" onBlur={handleGetEmail} name="" id="" placeholder="Your Email" />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input {...register("email", { required: true })} name='email' type='email' placeholder=' your email' onChange={handleOnChange} />
                 <br />
-                <input type="password" onBlur={handleGetPassword} name="" id="" placeholder="Password" />
+                <input {...register("password", { required: true })} type='password' name='password' placeholder=' your password' onChange={handleOnChange} />
                 <br />
-                <button className="signin-btn btn-success px-5" type="submit" value="Submit">Login</button>
+                <button className='btn btn-success px-4' >Login</button><br />
+                <h5 className="text-dark">New to Dronify? <NavLink style={{ textDecoration: 'none' }} to="/register" variant="text">Please create a account</NavLink></h5>
             </form>
-            <div className="pt-2">
-                <p>New to Dronify? <Link className="text-link" to="/register"><strong>Create a new account</strong></Link></p>
-                <div><hr className='w-50 mx-auto' /></div>
-                <button className="signin-btn btn-success" onClick={handleGoogleLogin}>Google Sign In</button>
+
+            <div className='login'>
+                <span><hr /></span>
+                <p className='fs-4'>Please login by your Google Account</p>
+                <button onClick={handleGoogleLogin} className='btn btn-success'>Google Login</button>
             </div>
+
+            {isLoading && <Spinner animation="grow" variant="secondary" />}
+
+            {authError && <Toast className="m-auto" onClose={() => setShow(false)} show={show} delay={100000} autohide>
+                <Toast.Header >
+                    <img
+                        src="holder.js/20x20?text=%20"
+                        className="rounded me-2"
+                        alt=""
+                    />
+                    <strong className="me-auto">Opps!!!</strong>
+                    <small>error</small>
+                </Toast.Header>
+                <Toast.Body>{authError}</Toast.Body>
+            </Toast>}
         </div>
     );
-
 };
+
 export default Login;
